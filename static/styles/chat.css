@@ -1,0 +1,181 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F3E9FC;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid #D7B8FF; /* Adding a soft border for refinement */
+}
+
+/* Chat Heading */
+.chat-container h1 {
+    font-size: 1.8em;
+    color: #6A0DAD;
+    margin-bottom: 10px;
+}
+
+/* Messages Section */
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: #EFE7F7;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    max-height: 300px;
+    border: 1px solid #D7B8FF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual Message Styling */
+.user-message {
+    background-color: #C89BFF;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: flex-end; /* Aligns user's message to the right */
+    word-wrap: break-word;
+}
+
+.bot-message {
+    background-color: #9F7FCE;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: flex-start; /* Aligns bot's message to the left */
+    word-wrap: break-word;
+}
+
+/* Error Message Styling */
+.error {
+    background-color: #FF7F7F;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    align-self: center;
+    word-wrap: break-word;
+}
+
+/* Input Section */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.input-container input {
+    flex-grow: 1;
+    border: 1px solid #D2B6E2;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    color: #6A0DAD;
+    transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: #6A0DAD;
+}
+
+.input-container button {
+    background-color: #6A0DAD;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.input-container button:hover {
+    background-color: #5A0085;
+}
+
+/* Loader Styles */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid violet;
+    border-top: 5px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hide Loader After Load */
+body.loaded .loader-overlay {
+    display: none;
+}
+
+
+.home-button {
+    background-color: purple;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    left: 0px; /* Move the button slightly to the right */
+    top: 0px;  /* Set a distance from top */
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #000;
+    color: #fff;
+}

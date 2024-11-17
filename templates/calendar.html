@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetLive | Diet Tracker</title>
+    <link rel="stylesheet" href="static/styles/calendar.css">
+    <script src="static/calendar.js" defer></script>
+    <style>
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid violet;
+            border-top: 5px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        body.loaded .loader-overlay {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <h1 class="title">Dietary Tracker</h1>
+        <p class="background-text">Track your pet's daily diet</p>
+    </header>
+
+    <!-- Main container for 3 columns -->
+    <div class="main-container">
+        <!-- Column 1: Calendar -->
+        <div class="column calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month" onclick="changeMonth(-1)" class="month-arrow">&#10094;</button>
+                <h2 id="month-year"></h2>
+                <button id="next-month" onclick="changeMonth(1)" class="month-arrow">&#10095;</button>
+            </div>
+            <table id="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="column detailed-view">
+            <h2>Details of Selected Day</h2>
+            <div id="detailed-info">
+                <div class="detail-box">
+                    <h3>Date:</h3>
+                    <p id="detail-date">No date selected.</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Food Items:</h3>
+                    <ul id="detail-food">
+                        <li>No items recorded.</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h3>Calories:</h3>
+                    <p id="detail-calories">0 kcal</p>
+                </div>
+                <div class="detail-box">
+                    <h3>Notes:</h3>
+                    <p id="detail-notes">No additional details.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column input-system">
+            <h2>Add Pet's Diet</h2>
+            <form id="diet-form">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" required>
+
+                <label for="food">Food Item:</label>
+                <select id="food" required>
+                    <option value="Chicken Rice">Chicken Rice</option>
+                    <option value="Fish & Vegetables">Fish & Vegetables</option>
+                    <option value="Dry Food">Dry Food</option>
+                    <option value="Wet Food">Wet Food</option>
+                </select>
+
+                <label for="calories">Calories:</label>
+                <input type="number" id="calories" min="0" placeholder="Calories (kcal)" required>
+
+                <label for="notes">Notes:</label>
+                <textarea id="notes" rows="3" placeholder="Additional details"></textarea>
+
+                <button type="button" onclick="addDiet()">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.body.classList.add("loaded");
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

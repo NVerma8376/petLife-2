@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetLive | Train Your Pet</title>
+    <link rel="stylesheet" href="static/styles/youtube.css">
+</head>
+<body>
+    <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+    <div class="chat-container">
+        <h1>Search for a Tutorial!</h1>
+        <div class="messages" id="messages">
+            {% if youtube_link %}
+                <iframe src="{{ youtube_link }}" title="YouTube video player" allowfullscreen></iframe>
+            {% else %}
+                <p style="color: grey;">Type a query to find the perfect YouTube tutorial!</p>
+            {% endif %}
+        </div>
+        <div class="input-container">
+            <form method="post">
+                <input type="text" name="msg" id="userMessage" placeholder="Ask me about your pet...">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

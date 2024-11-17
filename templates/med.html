@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Live | Medicine Reminder</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="static/styles/med.css">
+</head>
+<body>
+    <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+    
+    <div class="main">
+
+        <div class="container">
+            <div class="header">
+                <h1>Medicine Reminder</h1>
+
+                <div class="time" id="currentTime">
+                    <!-- Time will be displayed here -->
+                </div>
+            </div>
+
+            <div class="reminder-input-container">
+                <div class="medicine-name">
+                    <label for="medicineName">Medicine Name:</label>
+                    <select id="medicineName">
+                        <option value="" disabled selected>Select a medicine</option>
+                        <option value="Paracetamol">Paracetamol</option>
+                        <option value="Ibuprofen">Ibuprofen</option>
+                        <option value="Amoxicillin">Amoxicillin</option>
+                        <option value="Metformin">Metformin</option>
+                        <option value="Vitamin D">Vitamin D</option>
+                        <option value="Aspirin">Aspirin</option>
+                        <option value="Paracetamol">Famotidine</option>
+                        <option value="Ibuprofen">Diphenhydramine</option>
+                        <option value="Amoxicillin">Doxepin</option>
+                        <option value="Metformin">Tramadol</option>
+                        <option value="Vitamin D">Prednisone</option>
+                        <option value="Aspirin">Ketoconazole</option>
+                        <option value="Aspirin">Sucralfate</option>
+                    </select>
+                    </select>
+                </div>
+                
+
+                <div class="time-reminder">
+                    <label for="reminderTime">Reminder Time:</label>
+                    <input type="time" id="reminderTime">
+                </div>
+
+                <button class="add-reminder-btn" onclick="addReminder()">Add Reminder</button>
+            </div>
+
+            <div class="reminder-container">
+                <ul class="reminder-list" id="reminders">
+                  
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script JS -->
+    <script src="static/med.js"></script>
+
+</body>
+</html>

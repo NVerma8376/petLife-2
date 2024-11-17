@@ -1,0 +1,113 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #d7b8ff; /* Light purple background */
+    color: #333;
+}
+
+/* Container Styling */
+.chat-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #a26fff, #d7b8ff);
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Heading */
+.chat-container h1 {
+    color: #fff; /* White text */
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Messages Section */
+.messages {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff; /* White for contrast */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    min-height: 150px;
+}
+
+.messages iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    border: none;
+}
+
+/* Input Section */
+.input-container form {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.input-container input[type="submit"] {
+    padding: 12px 25px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #a26fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container input[type="submit"]:hover {
+    background-color: #8750c0; /* Slightly darker shade */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .input-container input[type="text"] {
+        width: 60%;
+    }
+
+    .chat-container {
+        margin: 20px;
+        padding: 15px;
+    }
+}
+
+
+.home-button {
+    background-color: purple;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    left: 0px; /* Move the button slightly to the right */
+    top: 0px;  /* Set a distance from top */
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #f9f9fa;
+    color: #000;
+}

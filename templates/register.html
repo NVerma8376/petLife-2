@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetLive | Register</title>
+  <link rel="stylesheet" href="static\styles\register.css">
+  <style>
+    .loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid violet;
+      border-top: 5px solid #000;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    body.loaded .loader-overlay {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+  <!-- Loader -->
+  <div class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+
+  <div class="wrapper">
+    <form action="#" method="post">
+      <h2>Register</h2>
+      <div class="input-field">
+        <input type="text" name="Email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="Password" required>
+        <label>Enter a password</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="Password_confirm" required>
+        <label>Confirm password</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="PetName" required>
+        <label>Pet Name</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="Name" required>
+        <label>Owner Name</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Register</button>
+      <div class="register">
+        <p>Have an account already? <a href="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

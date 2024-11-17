@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(135deg, #d7b8ff 10%, #a26fff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Button Styling (Positioning on left) */
+.home-button {
+    background-color: purple;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    left: 0px; /* Move the button slightly to the right */
+    top: 0px; /* Set a distance from top */
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #f9f9fa;
+    color: #000;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.background-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.main-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.column {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.calendar-container {
+    max-width: 400px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    color: #fff;
+    background: #a26fff;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    color: #000;
+    background: rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+td:hover {
+    background: #b795f7;
+    color: #fff;
+}
+
+td.current-day {
+    background: #a26fff;
+    color: white;
+    font-weight: bold;
+}
+
+/* Center the month-year and style the arrows */
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.month-arrow {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.month-arrow:hover {
+    color: #7f4bbf;
+}
+
+#month-year {
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    margin: 0 20px;
+    text-align: center;
+}
+
+/* Detailed View Styling */
+.detailed-view h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#detailed-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.detail-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.detail-box h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.detail-box p, .detail-box ul {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.detail-box ul {
+    padding-left: 20px;
+}
+
+.detail-box ul li {
+    list-style-type: disc;
+    color: #fff;
+}
+
+/* Input Form Styling */
+.input-system h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+form label {
+    color: white;
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form select, form textarea, form button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+form button {
+    background: #a26fff;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+}

@@ -1,0 +1,169 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #d7b8ff; /* Light purple background */
+    color: #333;
+}
+
+/* Main Container */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Reminder App Container */
+.container {
+    max-width: 500px;
+    width: 90%;
+    background: linear-gradient(145deg, #a26fff, #d7b8ff);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Header Section */
+.header h1 {
+    color: #fff; /* White header text */
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header .time {
+    font-size: 16px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Input Section */
+.reminder-input-container {
+    display: grid;
+    gap: 15px; /* Equal spacing between all elements */
+    margin-top: 20px;
+}
+
+.reminder-input-container label {
+    font-size: 14px;
+    color: #fff;
+}
+
+.reminder-input-container select,
+.reminder-input-container input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure consistent sizing */
+    outline: none;
+    margin: 0; /* Align with other elements */
+}
+
+
+/* Add Reminder Button */
+.add-reminder-btn {
+    padding: 10px 20px;
+    background-color: #a26fff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 0; /* Ensure no extra margin */
+}
+
+.reminder-input-container {
+    margin-bottom: 0; /* Remove extra spacing */
+}
+
+
+
+.add-reminder-btn:hover {
+    background-color: #8750c0; /* Slightly darker purple */
+}
+
+/* Reminders List */
+.reminder-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reminder-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 12px;
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Delete Button */
+.delete-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #ff4f4f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #d93636;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+}
+
+
+.home-button {
+    background-color: purple;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    left: 0px; /* Move the button slightly to the right */
+    top: 0px; /* Set a distance from top */
+    transition: background-color 0.3s;
+}
+
+.home-button:hover {
+    background-color: #f9f9fa;
+    color: #000;
+}

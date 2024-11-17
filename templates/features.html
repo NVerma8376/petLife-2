@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="static/features.js" defer></script>
+  <title>PetLive | Features</title>
+  <link rel="stylesheet" href="static/styles/features.css">
+  <script src="https://kit.fontawesome.com/a08d56a4cb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+  <div class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+  <div id="cards">
+    <a href="/calendar" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-bowl-food"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-bowl-food"></i>
+            <div class="card-info-title">
+              <h3>Diet Tracker</h3>
+              <h4>Track your pet's eating habits on a daily basis!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="/med" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <div class="card-info-title">
+              <h3>Medication Reminder</h3>
+              <h4>Never forget to give your pet its medication and in the correct doses!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="/train" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-paw"></i>
+            <div class="card-info-title">
+              <h3>Training</h3>
+              <h4>Find a personalized training video for your pet!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="/vaccination" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-syringe"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-syringe"></i>
+            <div class="card-info-title">
+              <h3>Vaccination Tracker</h3>
+              <h4>Keep track of your pet's vaccination doses and their dates!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="/identify" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-dog"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-dog"></i>
+            <div class="card-info-title">
+              <h3>Dog Breed Identifier</h3>
+              <h4>Can't figure out the breed of a stray or lost dog? We got your back!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="/chat" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-shield-dog"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-shield-dog"></i>
+            <div class="card-info-title">
+              <h3>Your AI Vet</h3>
+              <h4>A personalized AI Vet that will help you with basic doubts and questions related to your pet's health!</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <script>
+    document.addEventListener("mousemove", (e) => {
+      document.querySelectorAll(".card").forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+      });
+    });
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, 250);
+    });
+  </script>
+</body>
+</html>

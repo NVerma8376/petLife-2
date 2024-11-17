@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetLive | Login</title>
+  <link rel="stylesheet" href="static/styles/login.css">
+  <script src="static/login.js"></script>
+</head>
+<body>
+  <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+  <div class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+
+  <div class="wrapper">
+    <form action="/login" method="post">
+      <h2>Login</h2>
+      <div class="input-field">
+        <input type="email" name="Email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="Password" required>
+        <label>Enter password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit" class="loginBtn" id="loginbtn">Log In</button>
+      <div class="register">
+        <p>Don't have an account already? <a href="/signup">Register</a></p>
+      </div>
+
+      {% if error %}
+        <p style="color: red;">{{ error }}</p>  <!-- Show error message -->
+      {% endif %}
+    </form>
+  </div>
+</body>
+</html>
