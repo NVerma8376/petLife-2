@@ -10,7 +10,7 @@ from breed import predict_breed_from_base64  # Import breed prediction function
 app = Flask(__name__)
 
 # Set up Gemini API configuration
-API_KEY = "AIzaSyCTrL49-od4oVURK-UVH5-otjWGnWPuL3Q"
+API_KEY = "AIzaSyB3Kg4nvoM4Gg3gphPOtEsJ9EE3jDZN3xw"
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
@@ -151,14 +151,21 @@ def train():
 
     if request.method == "POST":
         details = request.form
-        query = details.get('msg')  # Get the message (which will be a query for YouTube)
+        query = details.get('msg')
         
-        if query:  # Ensure the query is not empty
-            youtube_link = youtubepull.get_video(query)  # Get YouTube link from the function
-            print(f"Query: {query}")
-            print(f"YouTube Link: {youtube_link}")
+        if query:  
+            try:
+                results = youtubepull.fetch_top_2_videos(query)
+                if results:
+                    youtube_link = results[0]['url']
+                    print(f"Query: {query}")
+                    print(f"YouTube Link: {youtube_link}")
+                else:
+                    print("No valid videos found.")
+            except Exception as e:
+                print(f"Error fetching videos: {e}")
         
-        return render_template('youtubeTrain.html', youtube_link=youtube_link)  # Pass the link to the template
+        return render_template('youtubeTrain.html', youtube_link=youtube_link)
 
     return render_template('youtubeTrain.html', youtube_link=youtube_link)
 
