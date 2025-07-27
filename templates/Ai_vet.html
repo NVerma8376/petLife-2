@@ -4,71 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetLive | Vet Bot</title>
+    <link rel="stylesheet" href="static/styles/style.css">
     <link rel="stylesheet" href="static/styles/chat.css">
-    <!-- <script src="path/to/your/script.js" defer></script> Ensure defer is used -->
-</head>
-<body>
-    <button class="home-button" onclick="window.location.href='/'">PetLive</button>
-    <div class="chat-container">
-        <h1>Chat with VetBot</h1>
-        <div class="messages" id="messages"></div>
-        <div class="input-container">
-            <input type="text" id="userMessage" placeholder="Ask me about your pet...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-
-    <!-- Place your JavaScript in a separate file or here with defer -->
-    <script>
-
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.body.classList.add("loaded");
-    }, 1500);
-});
-
-// Function to send the user's message to the server
-async function sendMessage() {
-    const userMessage = document.getElementById('userMessage').value;
-    if (!userMessage) return;
-
-    // Append the user message to the chat window
-    const messages = document.getElementById('messages');
-    messages.innerHTML += `<div class="user-message"><strong></strong> ${userMessage}</div>`;
-    document.getElementById('userMessage').value = '';
-
-    // Send the message to the backend using fetch API
-    try {
-        const response = await fetch('/get_response', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ msg: userMessage })
-        });
-
-        const data = await response.json();
-        if (data.response) {
-            messages.innerHTML += `<div class="bot-message"><strong></strong> ${data.response}</div>`;
-        } else if (data.error) {
-            messages.innerHTML += `<div class="bot-message error"><strong></strong> Error: ${data.error}</div>`;
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        // Scroll to the bottom of the messages window
-        messages.scrollTop = messages.scrollHeight;
-    } catch (error) {
-        console.error('Error:', error);
-        messages.innerHTML += `<div class="bot-message error"><strong></strong> Sorry, there was an error processing your message.</div>`;
-    }
-}
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid violet;
+            border-top: 5px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-// Listen for Enter key press in the input field
-document.getElementById('userMessage').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
-});
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
+        body.loaded .loader-overlay {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo cute-logo">
+                <a href="/">
+                    <span class="paw-icon"><i class="fas fa-paw"></i></span>
+                    <span class="logo-text">PetLive</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/calendar">Calendar</a></li>
+                <li><a href="/chat">VetBot</a></li>
+                <li><a href="/train">Train</a></li>
+                <li><a href="/identify">Identify</a></li>
+            </ul>
+            <div class="buttons">
+                {% if logged_in %}
+                    <a href="/logout"><input type="button" value="Logout"></a>
+                {% else %}
+                    <a href="/login"><input type="button" value="Login"></a>
+                    <a href="/signup"><input type="button" value="Register"></a>
+                {% endif %}
+            </div>
+        </nav>
+        
+        <section class="chat-page-section">
+            <div class="chat-header-content">
+                <h1 class="chat-title">Chat with VetBot</h1>
+                <p class="chat-subtitle">Your AI-powered pet health assistant</p>
+            </div>
+            
+            <div class="chat-container">
+                <div class="messages" id="messages">
+                    <div class="bot-message welcome-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-shield-dog"></i>
+                        </div>
+                        <div class="message-content">
+                            <strong>VetBot:</strong> Hello! I'm your AI pet health assistant. How can I help you today? Feel free to ask me anything about your pet's health, behavior, or care.
+                        </div>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="userMessage" placeholder="Ask me about your pet...">
+                    <button onclick="sendMessage()" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.body.classList.add("loaded");
+            }, 1500);
+        });
+
+        // Function to send the user's message to the server
+        async function sendMessage() {
+            const userMessage = document.getElementById('userMessage').value;
+            if (!userMessage) return;
+
+            // Append the user message to the chat window
+            const messages = document.getElementById('messages');
+            messages.innerHTML += `
+                <div class="user-message">
+                    <div class="message-content">
+                        <strong>You:</strong> ${userMessage}
+                    </div>
+                    <div class="message-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            `;
+            document.getElementById('userMessage').value = '';
+
+            // Send the message to the backend using fetch API
+            try {
+                const response = await fetch('/get_response', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ msg: userMessage })
+                });
+
+                const data = await response.json();
+                if (data.response) {
+                    messages.innerHTML += `
+                        <div class="bot-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-shield-dog"></i>
+                            </div>
+                            <div class="message-content">
+                                <strong>VetBot:</strong> ${data.response}
+                            </div>
+                        </div>
+                    `;
+                } else if (data.error) {
+                    messages.innerHTML += `
+                        <div class="bot-message error">
+                            <div class="message-avatar">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="message-content">
+                                <strong>Error:</strong> ${data.error}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Scroll to the bottom of the messages window
+                messages.scrollTop = messages.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+                messages.innerHTML += `
+                    <div class="bot-message error">
+                        <div class="message-avatar">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="message-content">
+                            <strong>Error:</strong> Sorry, there was an error processing your message.
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // Listen for Enter key press in the input field
+        document.getElementById('userMessage').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>

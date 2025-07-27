@@ -19,7 +19,6 @@
       align-items: center;
       z-index: 1000;
     }
-
     .loader {
       width: 50px;
       height: 50px;
@@ -28,19 +27,11 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
-
     @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
-
-    body.loaded .loader-overlay {
-      display: none;
-    }
+    body.loaded .loader-overlay { display: none; }
   </style>
 </head>
 <body>
@@ -51,7 +42,12 @@
 
   <header>
     <nav class="navbar">
-      <div class="logo"><a href="#">PetLive</a></div>
+      <div class="logo cute-logo">
+        <a href="/">
+          <span class="paw-icon"><i class="fas fa-paw"></i></span>
+          <span class="logo-text">PetLive</span>
+        </a>
+      </div>
       <ul class="menu">
         <li><a href="/">Home</a></li>
         <li><a href="/features">Features</a></li>
@@ -69,10 +65,24 @@
         {% endif %}
       </div>
     </nav>
-    <div class="text-content">
-      <h2>PetLive<br>Happier Pets Happier You</h2>
-      <p>Pet Live is a pet health care and wellness tracker. It utilises AI along with computer vision to provide the best data required to the user to keep their pet healthy and fit.</p>
-    </div>
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title animate-pop">Happier Pets, Happier You!</h1>
+        <p class="hero-sub animate-fade">Your all-in-one pet health, wellness, and happiness tracker.<br>AI-powered, easy, and fun!</p>
+        <div class="hero-buttons">
+          <a href="/features" class="hero-btn animate-bounce">Explore Features</a>
+          <a href="/register" class="hero-btn secondary animate-bounce">Get Started</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="static/hero.png" alt="PetLife hero" class="hero-image animate-float">
+        <div class="floating-paws">
+          <i class="fas fa-paw paw1"></i>
+          <i class="fas fa-paw paw2"></i>
+          <i class="fas fa-paw paw3"></i>
+        </div>
+      </div>
+    </section>
   </header>
 
   <script>
