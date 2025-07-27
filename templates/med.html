@@ -7,9 +7,35 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="static/styles/med.css">
+    <link rel="stylesheet" href="static/styles/style.css">
 </head>
-<body>
-    <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+<header>
+    <nav class="navbar">
+            <div class="logo cute-logo">
+                <a href="/">
+
+                    <span class="logo-text">PetLive</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/calendar">Calendar</a></li>
+                <li><a href="/chat">VetBot</a></li>
+                <li><a href="/train">Train</a></li>
+                <li><a href="/identify">Identify</a></li>
+            </ul>
+            <div class="buttons">
+                {% if logged_in %}
+                    <a href="/logout"><input type="button" value="Logout"></a>
+                {% else %}
+                    <a href="/login"><input type="button" value="Login"></a>
+                    <a href="/signup"><input type="button" value="Register"></a>
+                {% endif %}
+            </div>
+        </nav>
+    <body>
+    
     
     <div class="main">
 
@@ -66,4 +92,6 @@
     <script src="static/med.js"></script>
 
 </body>
+</header>
+
 </html>

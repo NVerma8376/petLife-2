@@ -5,11 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaccination Tracker</title>
   <link rel="stylesheet" href="static\styles\vaccination.css">
+  <link rel="stylesheet" href="static\styles\style.css">
   <link rel="icon" href="logo.ico">
 </head>
+<header>
+  <nav class="navbar">
+            <div class="logo cute-logo">
+                <a href="/">
+
+                    <span class="logo-text">PetLive</span>
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/calendar">Calendar</a></li>
+                <li><a href="/chat">VetBot</a></li>
+                <li><a href="/train">Train</a></li>
+                <li><a href="/identify">Identify</a></li>
+            </ul>
+            <div class="buttons">
+                {% if logged_in %}
+                    <a href="/logout"><input type="button" value="Logout"></a>
+                {% else %}
+                    <a href="/login"><input type="button" value="Login"></a>
+                    <a href="/signup"><input type="button" value="Register"></a>
+                {% endif %}
+            </div>
+        </nav>
 <body>
-  <button class="home-button" onclick="window.location.href='/'">PetLive</button>
-    <center></center>
+  
+
   <div class="container">
     <div class="calendar">
       <div class="header">
@@ -43,4 +69,6 @@
 
   <script src="static/vaccination.js"></script>
 </body>
+</header>
+
 </html>

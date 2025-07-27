@@ -3,21 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetLive | Features</title>
-  <link rel="stylesheet" href="static/styles/style.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="static/features.js" defer></script>
+  <title>Features</title>
+  <link rel="icon" href="logo.ico">
+  <link rel="stylesheet" href="static/styles/features.css">
+  <link rel="stylesheet" href="static/styles/style.css">
+  <script src="https://kit.fontawesome.com/a08d56a4cb.js" crossorigin="anonymous"></script>
+  <style>
+    home-button {
+    background-color: #D4B4FF;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    position: absolute;
+    left: 285px; /* Move the button slightly to the right */
+    top: 20px;  /* Set a distance from top */
+    transition: background-color 0.3s;
+}
+  </style>
 </head>
-<body>
-  <!-- Loader -->
-  <div class="loader-overlay">
-    <div class="loader"></div>
-  </div>
-  <header>
-    <nav class="navbar">
+<header>
+  <nav class="navbar">
       <div class="logo cute-logo">
         <a href="/">
-          <span class="paw-icon"><i class="fas fa-paw"></i></span>
+ 
           <span class="logo-text">PetLive</span>
         </a>
       </div>
@@ -38,55 +52,115 @@
         {% endif %}
       </div>
     </nav>
-    <section class="features-section">
-      <div class="bento-grid">
-        <a href="/calendar" class="bento bento-feature">
-          <div class="bento-icon">
+  <body>
+  
+  <div class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+  <div id="cards">
+    <a href="/calendar" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-bowl-food"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
             <i class="fa-solid fa-bowl-food"></i>
+            <div class="card-info-title">
+              <h3>Diet Tracker</h3>
+              <h4>Track your pet's eating habits on a daily basis!</h4>
+            </div>
           </div>
-          <h3>Diet Tracker</h3>
-          <p>Track your pet's eating habits on a daily basis!</p>
-        </a>
-        <a href="/med" class="bento bento-feature">
-          <div class="bento-icon">
+        </div>
+      </div>
+    </a>
+
+    <a href="/med" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
             <i class="fa-solid fa-prescription-bottle-medical"></i>
+            <div class="card-info-title">
+              <h3>Medication Reminder</h3>
+              <h4>Never forget to give your pet its medication and in the correct doses!</h4>
+            </div>
           </div>
-          <h3>Medication Reminder</h3>
-          <p>Never forget to give your pet its medication and in the correct doses!</p>
-        </a>
-        <a href="/train" class="bento bento-feature">
-          <div class="bento-icon">
+        </div>
+      </div>
+    </a>
+
+    <a href="/train" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
             <i class="fa-solid fa-paw"></i>
+            <div class="card-info-title">
+              <h3>Training</h3>
+              <h4>Find a personalized training video for your pet!</h4>
+            </div>
           </div>
-          <h3>Training</h3>
-          <p>Find a personalized training video for your pet!</p>
-        </a>
-        <a href="/vaccination" class="bento bento-feature">
-          <div class="bento-icon">
+        </div>
+      </div>
+    </a>
+
+    <a href="/vaccination" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-syringe"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
             <i class="fa-solid fa-syringe"></i>
+            <div class="card-info-title">
+              <h3>Vaccination Tracker</h3>
+              <h4>Keep track of your pet's vaccination doses and their dates!</h4>
+            </div>
           </div>
-          <h3>Vaccination Tracker</h3>
-          <p>Keep track of your pet's vaccination doses and their dates!</p>
-        </a>
-        <a href="/identify" class="bento bento-feature">
-          <div class="bento-icon">
+        </div>
+      </div>
+    </a>
+
+    <a href="/identify" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-dog"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
             <i class="fa-solid fa-dog"></i>
+            <div class="card-info-title">
+              <h3>Dog Breed Identifier</h3>
+              <h4>Can't figure out the breed of a stray or lost dog? We got your back!</h4>
+            </div>
           </div>
-          <h3>Dog Breed Identifier</h3>
-          <p>Can't figure out the breed of a stray or lost dog? We got your back!</p>
-        </a>
-        <a href="/chat" class="bento bento-feature">
-          <div class="bento-icon">
+        </div>
+      </div>
+    </a>
+
+    <a href="/chat" class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-shield-dog"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
             <i class="fa-solid fa-shield-dog"></i>
+            <div class="card-info-title">
+              <h3>Your AI Vet</h3>
+              <h4>A personalized AI Vet that will help you with basic doubts and questions related to your pet's health!</h4>
+            </div>
           </div>
-          <h3>Your AI Vet</h3>
-          <p>A personalized AI Vet that will help you with basic doubts and questions related to your pet's health!</p>
-        </a>
+        </div>
       </div>
-      <div id="cards">
-      </div>
-    </section>
-  </header>
+    </a>
+  </div>
+
   <script>
     document.addEventListener("mousemove", (e) => {
       document.querySelectorAll(".card").forEach((card) => {
@@ -95,6 +169,7 @@
         card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
       });
     });
+
     window.addEventListener("load", () => {
       setTimeout(() => {
         document.body.classList.add("loaded");
@@ -102,4 +177,6 @@
     });
   </script>
 </body>
+</header>
+
 </html>

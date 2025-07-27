@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PetLive | Breed Identifier</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles/style.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -95,17 +96,66 @@
             font-size: 1.2em;
             margin-top: 20px;
         }
+        .logo-text {
+            color: #2d3559 !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-shadow: 0 0 12px #e0f7fa, 0 0 24px #fff, 0 2px 8px #b6d0ff99;
+            text-decoration: none;
+        }
+        .cute-logo {
+            display: flex;
+            align-items: center;
+            font-size: 54px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #2d3559 !important;
+            text-shadow: 0 0 12px #e0f7fa, 0 0 24px #fff, 0 2px 8px #b6d0ff99;
+            text-decoration: none;
+            }
+        .cute-logo .paw-icon {
+            color: #b6d0ff !important;
+            font-size: 68px;
+            margin-right: 18px;
+            animation: paw-wave 2s infinite alternate;
+            text-shadow: 0 0 16px #e0f7fa, 0 0 32px #fff;
+            text-decoration: none;
+        }       
     </style>
     <script>
         // JavaScript to show the chosen file name after selection
-        function showFileName(input) {
+        function showFileName(input) {                                                  
             var fileName = input.files[0].name;
             document.getElementById("file-name-display").innerText = fileName;
         }
-    </script>
+    </script>                                                                               
 </head>
-<body>
-    <button class="home-button" onclick="window.location.href='/'">PetLive</button>
+<header>
+    <body>
+    <nav class="navbar">
+      <div class="logo cute-logo">
+        <a href="/">
+
+          <span class="logo-text">PetLive</span>
+        </a>
+      </div>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/calendar">Calendar</a></li>
+        <li><a href="/chat">VetBot</a></li>
+        <li><a href="/train">Train</a></li>
+        <li><a href="/identify">Identify</a></li>
+      </ul>
+      <div class="buttons">
+        {% if logged_in %}
+          <a href="/logout"><input type="button" value="Logout"></a>
+        {% else %}
+          <a href="/login"><input type="button" value="Login"></a>
+          <a href="/signup"><input type="button" value="Register"></a>
+        {% endif %}
+      </div>
+    </nav>
     <div class="container">
         <h1>Upload Image for Dog Breed Prediction</h1>
         <form action="{{ url_for('predict_breed') }}" method="POST" enctype="multipart/form-data">
@@ -130,4 +180,6 @@
         {% endif %}
     </div>
 </body>
+</header>
+
 </html>
