@@ -88,11 +88,12 @@ table {
 
 th {
     color: #2d3559;
-    background: linear-gradient(135deg, #b6d0ff 60%, #e0f7fa 100%);
-    padding: 8px 4px;
+    background: #b6d0ff;
+    padding: 10px 4px;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius: 60px;
     font-size: 0.85rem;
+
 }
 
 td {

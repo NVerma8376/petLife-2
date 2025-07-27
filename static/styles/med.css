@@ -19,7 +19,7 @@ body {
 .container {
     max-width: 500px;
     width: 90%;
-    background: linear-gradient(145deg, #a26fff, #d7b8ff);
+    background: rgba(255, 255, 255, 0.45);
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
@@ -29,8 +29,8 @@ body {
 
 /* Header Section */
 .header h1 {
-    color: #fff; /* White header text */
-    font-size: 24px;
+    color: #2d3559;; /* White header text */
+    font-size: 2.2rem;
     margin-bottom: 15px;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
